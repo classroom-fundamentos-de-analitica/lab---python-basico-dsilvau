@@ -217,6 +217,7 @@ def pregunta_06():
         Datos = [(letra,int(m),int(minimo[letra])) for letra, m in maximo.items()] 
         Datos.sort(key=lambda x: x[0]) 
         
+        
 
     """
     La columna 5 codifica un diccionario donde cada cadena de tres letras corresponde a
@@ -240,7 +241,7 @@ def pregunta_06():
 
     """
     return Datos
-
+pregunta_06()
 
 def pregunta_07():
     import csv
@@ -322,7 +323,7 @@ def pregunta_08():
 
     """
     return Datos
-
+pregunta_08()
 
 def pregunta_09():
     import csv
