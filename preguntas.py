@@ -301,7 +301,8 @@ def pregunta_08():
                     tuplas[int(listas[1])] += [listas[0]]
         Datos = list(tuplas.items())
         Datos = sorted(Datos, key=lambda x: (x[0]))
-        Datos = [[row[0],sorted(row[1])] for row in Datos]
+        datos_ordenados = [(tupla[0], sorted(tupla[1])) for tupla in Datos]
+        
     """
     Genere una lista de tuplas, donde el primer elemento de cada tupla contiene  el valor
     de la segunda columna; la segunda parte de la tupla es una lista con las letras
@@ -323,7 +324,7 @@ def pregunta_08():
     ]
 
     """
-    return Datos
+    return datos_ordenados
 
 def pregunta_09():
 
