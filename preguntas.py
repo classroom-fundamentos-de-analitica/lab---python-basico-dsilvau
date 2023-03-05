@@ -214,7 +214,7 @@ def pregunta_06():
                 else:
                     if int(dict[4:]) < minimo[dict[0:3]]:
                         minimo[dict[0:3]] = int(dict[4:])
-        Datos = [(letra,int(m),int(minimo[letra])) for letra, m in maximo.items()] 
+        Datos = [(letra,int(minimo[letra]),int(m)) for letra, m in maximo.items()] 
         Datos.sort(key=lambda x: x[0]) 
         
         
@@ -241,7 +241,7 @@ def pregunta_06():
 
     """
     return Datos
-pregunta_06()
+
 
 def pregunta_07():
     import csv
@@ -300,7 +300,8 @@ def pregunta_08():
                 if listas[0] not in tuplas[int(listas[1])]:
                     tuplas[int(listas[1])] += [listas[0]]
         Datos = list(tuplas.items())
-        Datos = sorted(Datos, key=lambda x: (x[0], x[1]))
+        Datos = sorted(Datos, key=lambda x: (x[0]))
+        Datos = [[row[0],sorted(row[1])] for row in Datos]
     """
     Genere una lista de tuplas, donde el primer elemento de cada tupla contiene  el valor
     de la segunda columna; la segunda parte de la tupla es una lista con las letras
@@ -323,9 +324,9 @@ def pregunta_08():
 
     """
     return Datos
-pregunta_08()
 
 def pregunta_09():
+
     import csv
     with open('data.csv', newline='') as file: 
         Datos = csv.Sniffer().sniff(file.read(1024))
@@ -341,8 +342,9 @@ def pregunta_09():
                     contar[dict[0:3]] = 1
                 else:
                     contar[dict[0:3]] += 1
-        Datos = [(letra,m) for letra, m in contar.items()] 
-        Datos.sort(key=lambda x: x[0]) 
+        retornar = {}
+        for claves in sorted(contar.keys()):
+            retornar[claves] = contar[claves]
     """
     Retorne un diccionario que contenga la cantidad de registros en que aparece cada
     clave de la columna 5.
@@ -362,8 +364,7 @@ def pregunta_09():
     }
 
     """
-    return Datos
-
+    return retornar
 def pregunta_10():
     import csv
     with open('data.csv', newline='') as file: 
